@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="ASAPgreen">#18ff04</color>
+    <color name="betterasapgreen">#53cc49</color>
+    <color name="edittextprettybackground">#348f8f8f</color>
+</resources>

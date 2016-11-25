@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "739442737942",
+    "firebase_url": "https://asap-scouting.firebaseio.com",
+    "project_id": "asap-scouting",
+    "storage_bucket": "asap-scouting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739442737942:android:ee569f7d7836c2bf",
+        "android_client_info": {
+          "package_name": "com.smartstar.christopherjohnson.asapscouting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739442737942-3bobnd6ejvf1q93cri36i50uuhd0sdeq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartstar.christopherjohnson.asapscouting",
+            "certificate_hash": "D82FE4AF6EEB2DE78A654A03A57163C7DC7F5D25"
+          }
+        },
+        {
+          "client_id": "739442737942-shcpoc3qvcdbb6gosfflmqbe17l3lmma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMTOehlxF_sVLw_iW6_nzbbTMHmU2G9eE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739442737942-shcpoc3qvcdbb6gosfflmqbe17l3lmma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
