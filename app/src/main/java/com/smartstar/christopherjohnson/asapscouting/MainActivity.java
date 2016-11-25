@@ -29,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class MainActivity extends AppCompatActivity {
     // Firebase object
+    // TODO: 11/24/16 Connect Firebase to TeamManager
     FirebaseDatabase teamDatabase;
     DatabaseReference teamsRef;
 
