@@ -4,21 +4,15 @@ import android.content.Context;
 import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-import android.widget.ViewFlipper;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,8 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * This app uses Firebase to have an offline database for scouting.
  */
 public class MainActivity extends AppCompatActivity {
-    // Firebase object
-    // TODO: 11/24/16 Connect Firebase to TeamManager
+    // Firebase objects
     FirebaseDatabase teamDatabase;
     DatabaseReference teamsRef;
 
@@ -50,40 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
     CheckBox abilitiesChecks[];
 
-    Context context;
+    // This was used for making "Toasts" to display error notices, but not anymore
+    //Context context;
 
     // Click listener for viewData
     Button.OnClickListener viewDataListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             teamsRef = teamDatabase.getReference("teams");
-        }
-    };
-
-    ChildEventListener newTeamRegistered = new ChildEventListener() {
-        @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-        }
-
-        @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
         }
     };
 
@@ -149,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
         submitProgressBar.getIndeterminateDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         submitProgressBar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
 
-        teamsRef.addChildEventListener(this.newTeamRegistered);
-
         teamNameEdit = (EditText) findViewById(R.id.nameBox);
         teamNumberEdit = (EditText) findViewById(R.id.numberBox);
 
@@ -160,7 +125,12 @@ public class MainActivity extends AppCompatActivity {
         viewData.setOnClickListener(this.viewDataListener);
         addOrUpdateData.setOnClickListener(this.addOrUpdateTeamListener);
 
-        manager = new TeamManager(getApplicationContext(), teamsRef, this.newTeamRegistered, submitProgressBar);
+        manager = new TeamManager(getApplicationContext(), teamsRef, submitProgressBar);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     /**

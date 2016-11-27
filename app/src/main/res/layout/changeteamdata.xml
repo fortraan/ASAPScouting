@@ -115,7 +115,9 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/submit"
         android:background="@color/cardview_dark_background"
-        android:progressBackgroundTint="?android:attr/textColorSecondaryInverseNoDisable" />
+        android:progressBackgroundTint="?android:attr/textColorSecondaryInverseNoDisable"
+        android:max="15"
+        android:progress="0" />
 
     <Button
         android:text="Find team"

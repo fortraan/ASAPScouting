@@ -22,11 +22,23 @@ public class TeamAbilities {
         }
     }
 
+    public TeamAbilities(Map<String, Boolean> data) {
+        this.abilityMapperData = data;
+    }
+
     public Boolean getAbilityValue(String key) {
         if (abilityMapperData.containsKey(key)) {
             return abilityMapperData.get(key);
         } else {
             return null;
         }
+    }
+
+    public int getNumAbilities() {
+        return abilityMapperData.size();
+    }
+
+    public Map<String, Boolean> getAbilityMapperData() {
+        return abilityMapperData;
     }
 }
