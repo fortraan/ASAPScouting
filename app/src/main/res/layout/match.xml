@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app=""
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/matchLayout"
+    android:background="@android:color/black">
+
+    <Button
+        android:text="< Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/backFromMatch"
+        style="@style/scouting.Nav" />
+
+    <TextView
+        android:text="Scout a match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/backFromMatchLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/backFromMatch"
+        android:layout_toEndOf="@+id/backFromMatch"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_light"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:background="@color/cardview_dark_background" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions"
+        android:ems="10"
+        android:id="@+id/teamNameEdit"
+        android:hint="Team's name"
+        android:textColorHint="?attr/colorButtonNormal"
+        android:textColor="@android:color/background_light"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:backgroundTintMode="add"
+        android:backgroundTint="@android:drawable/screen_background_dark_transparent"
+        android:layout_below="@+id/backFromMatch"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/teamNumberEdit"
+        android:hint="Team's number"
+        android:textColor="@android:color/background_light"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:textColorHint="?attr/colorButtonNormal"
+        android:layout_below="@+id/teamNameEdit"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Find team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/autofindteam"
+        android:textSize="18sp"
+        android:textColor="@android:color/background_light"
+        android:textAlignment="center"
+        android:background="@color/cardview_dark_background"
+        android:layout_below="@+id/teamNameEdit"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/teamNameEdit" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/autofindteam"
+        android:layout_alignParentStart="true"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:id="@+id/container">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Test count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/testCountButton"
+                android:layout_weight="1"
+                style="@style/scouting.Nav" />
+
+            <Button
+                android:text="-1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/testCountD"
+                android:layout_weight="1"
+                style="@style/scouting.Nav"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/testCountText"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_light"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:background="@color/edittextprettybackground" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

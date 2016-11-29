@@ -58,6 +58,7 @@ public class DatabaseUpdater {
                         // Their abilities will change, but name changes are rare
                         // and number changes are not allowed.
                         data.child("abilities").setValue(abilitiesHashMap);
+
                         return Transaction.success(mutableData);
                     }
                 }

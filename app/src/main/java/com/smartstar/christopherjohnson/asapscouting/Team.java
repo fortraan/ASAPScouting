@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 
 public class Team {
     public TeamAbilities abilities;
+    public Performance perfomance;
 
     // These variables could be declared final, but
     // they aren't because there could be accidental typos
@@ -25,4 +26,6 @@ public class Team {
         this.teamName = name;
         this.abilities = teamAbilities;
     }
+
+    public void updatePerformance()
 }

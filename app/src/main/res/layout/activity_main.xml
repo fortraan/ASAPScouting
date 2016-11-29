@@ -54,6 +54,14 @@
             android:id="@+id/addOrUpdate"
             android:layout_below="@+id/viewdata"
             android:layout_alignStart="@+id/viewdata" />
+
+        <Button
+            android:text="Match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addOrUpdate"
+            android:layout_alignStart="@+id/addOrUpdate"
+            android:id="@+id/matchButton" />
     </RelativeLayout>
 
 </RelativeLayout>

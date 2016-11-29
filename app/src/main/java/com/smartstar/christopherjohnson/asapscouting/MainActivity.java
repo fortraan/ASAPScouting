@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -32,12 +33,23 @@ public class MainActivity extends AppCompatActivity {
     Button viewData;
     Button addOrUpdateData;
     Button findTeam;
+    Button findTeamForMatch;
     Button submitTeam;
+    Button backFromUpdate;
+    Button backFromMatch;
+
+    Button scoringButtons[];
+    Button scoringDecrement[];
+    TextView scoringTextViews[];
 
     EditText teamNameEdit;
     EditText teamNumberEdit;
+    EditText teamNameEditMatch;
+    EditText teamNumberEditMatch;
 
     LinearLayout abilitiesLayout;
+    LinearLayout scoringContainer;
+    LinearLayout scoringLayouts[];
 
     ProgressBar submitProgressBar;
 
@@ -80,6 +92,21 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    Button.OnClickListener backFromUpdateListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            setContentView(R.layout.activity_main);
+        }
+    };
+
+    Button.OnClickListener backFromMatchListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            setContentView(R.layout.activity_main);
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,13 +127,46 @@ public class MainActivity extends AppCompatActivity {
             this.abilitiesChecks[i] = (CheckBox) abilitiesLayout.getChildAt(i);
         }
 
+        scoringContainer = (LinearLayout) findViewById(R.id.container);
+        for (int i = 0; i < scoringContainer.getChildCount(); i++) {
+            scoringLayouts[i] = (LinearLayout) scoringContainer.getChildAt(i);
+            scoringButtons[i] = (Button) scoringLayouts[i].getChildAt(0);
+            scoringDecrement[i] = (Button) scoringLayouts[i].getChildAt(1);
+            scoringTextViews[i] = (TextView) scoringLayouts[i].getChildAt(2);
+
+            final int finalI = i;
+            scoringButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    scoringTextViews[finalI].setText(String.valueOf(Integer.decode(String.valueOf(scoringTextViews[finalI].getText())) + 1));
+                }
+            });
+            scoringDecrement[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    scoringTextViews[finalI].setText(String.valueOf(Integer.decode(String.valueOf(scoringTextViews[finalI].getText())) - 1));
+                }
+            });
+        }
+
         submitProgressBar = (ProgressBar) findViewById(R.id.submitProgress);
 
         findTeam = (Button) findViewById(R.id.autoselectTeam);
         findTeam.setOnClickListener(this.findTeamByNumber);
 
+        findTeamForMatch = (Button) findViewById(R.id.autofindteam);
+        findTeamForMatch.setOnClickListener(this.findTeamByNumber);
+
         submitTeam = (Button) findViewById(R.id.submit);
         submitTeam.setOnClickListener(this.submitTeamListener);
+
+        backFromUpdate = (Button) findViewById(R.id.back);
+        backFromUpdate.setOnClickListener(this.backFromUpdateListener);
+
+        backFromMatch = (Button) findViewById(R.id.backFromMatch);
+        backFromMatch.setOnClickListener(this.backFromMatchListener);
+
+
 
         // This makes the progress bar ASAP green
         // It uses the official ASAP green from the duke's light code
@@ -118,6 +178,9 @@ public class MainActivity extends AppCompatActivity {
 
         teamNameEdit = (EditText) findViewById(R.id.nameBox);
         teamNumberEdit = (EditText) findViewById(R.id.numberBox);
+
+        teamNameEditMatch = (EditText) findViewById(R.id.teamNameEdit);
+        teamNumberEditMatch = (EditText) findViewById(R.id.teamNumberEdit);
 
         viewData = (Button) findViewById(R.id.viewdata);
         addOrUpdateData = (Button) findViewById(R.id.addOrUpdate);
